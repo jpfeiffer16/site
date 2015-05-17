@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      //link(rel='stylesheet', href='/css/style.css')
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css')
+    block js
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+      if ENV_DEVELOPMENT
+        script(src='http://localhost:35729/livereload.js')
+  body
+    //Nav
+    div(class="container")
+      nav(class="navbar navbar-default")
+        div(class="container-fluid")
+          div(class="collapse navbar-collapse")
+            ul(class="nav navbar-nav")
+              li(class="active")
+                a(href="/index") Home
+              li
+                a(href="/about") About This Site
+              li
+                a(href="/showsomelove") Show Some Love!
+              li
+                a test
+      div(clas="page-header")
+        //h1 #{title} | 
+          //small= heading
+        //hr
+      block content
