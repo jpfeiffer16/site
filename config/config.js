@@ -24,7 +24,7 @@ var config = {
     app: {
       name: 'maryandjoe-com'
     },
-    port: 3000,
+    port: process.env.PORT,
   }
 };
 
