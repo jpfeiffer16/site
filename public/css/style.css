@@ -1,8 +1,41 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: elegant;
+    src: url(/font/JandaElegantHandwriting.ttf);
 }
 
-a {
-  color: #00B7FF;
+.rsvp-controls {
+  display: block;
+  width: 350px;
+}
+
+.rsvp-controls .btn.btn-default {
+  position: relative;
+  left: 250px;
+}
+
+.elegant {
+  font-family: elegant;
+}
+
+.elegant-input {
+  border-Width: 0PX;
+  border-bottom-width: 2px;
+}
+
+.input-label strong{
+  text-align: right;
+}
+
+.input-grid {
+  display: inline-block;
+  width: 200px;
+}
+
+.grid-small {
+  display: inline-block;
+  width: 150px;
+}
+
+.align-right {
+  text-align: right;
 }

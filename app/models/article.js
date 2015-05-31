@@ -1,6 +1,5 @@
 // Example model
 
-
 function Article (opts) {
   if(!opts) opts = {};
   this.title = opts.title || '';
@@ -9,4 +8,3 @@ function Article (opts) {
 }
 
 module.exports = Article;
-

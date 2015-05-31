@@ -8,10 +8,10 @@ module.exports = function (app) {
 };
 
 
-router.get('/about', function (req, res, next) {
-    res.render('about', {
-      alias: "About",
-      title: 'About Us',
-      heading: 'Stuff'
+router.get('/rsvp', function (req, res, next) {
+    res.render('rsvp', {
+      alias: "Rsvp",
+      title: 'RSVP',
+      heading: 'Rsvp if you are comming to the wedding'
     });
 });
