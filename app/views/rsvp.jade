@@ -9,19 +9,19 @@ extends layout
 
 
 block content
-	div(clas="rsvp-controls")
-		div(class="grid-small align-right")
-			div(class="input-label")
-				strong(class="elegant") M: 
-		div(class="input-grid")
-			div(class="input-div")
-				input(type="text" class="elegant-input")
-		br
-		div(class="grid-small align-right")
-			div(class="input-label")
-				strong(class="elegant") # Attending: 
-		div(class="input-grid")
-			div(class="input-div")
-				input(type="text" class="elegant-input")
-		br
-		input(type="submit" class="btn btn-default")
+	form
+		div(class="rsvp-controls")
+			div(class="input-group")
+				strong(class="elegant") M: 	
+				input(type="text" class="elegant-input long")
+			br
+			div(class="input-group")
+				input(id="accept" type="radio" name="accept-or-decline")
+				strong(class="elegant")  Accepts with pleasure # 
+				input(type="text" class="elegant-input tiny" id="number-attending")
+			br
+			div(class="input-group")
+				input(id="decline" type="radio" name="accept-or-decline")
+				strong(class="elegant")  Declines with regret 
+			br
+			input(type="submit" class="btn-basic small dfk-font")

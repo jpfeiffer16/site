@@ -3,23 +3,104 @@
     src: url(/font/JandaElegantHandwriting.ttf);
 }
 
-.rsvp-controls {
-  display: block;
-  width: 350px;
+@font-face {
+  font-family: dfk-font;
+  src: url(/font/kaiu.ttf);
 }
 
-.rsvp-controls .btn-default {
+@font-face {
+  font-family: dillenia-font;
+  src: url(/font/upcdl.ttf);
+}
+
+body {
+  background-color: maroon !important;
+}
+
+.container {
+  background-color: white !important;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 37px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 37px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 37px -1px rgba(0,0,0,0.75);
+  min-height: 100vh;
+  max-width: 900px;
   position: relative;
-  left: 250px;
+  background-image: url(/img/just_beige_light_beige_n.jpg);
+}
+
+.rsvp-controls {
+  margin: auto;
+  margin-top: 46px;
+  width: 370px;
+  border-width: 2px;
+  border-style: solid;
+  padding: 29px;
+  box-sizing: content-box;
+  background-color: white;
+  border-color: rgba(207, 182, 59, 0.35);
+  
+  -webkit-box-shadow: 0px 0px 37px -1px rgba(215, 188, 61, 0.71);
+  -moz-box-shadow: 0px 0px 37px -1px rgba(215, 188, 61, 0.71);
+  box-shadow: 0px 0px 37px -1px rgba(215, 188, 61, 0.71);
+/*  background: 
+   url(/img/corner-swirl-gold-hi.png) 600px 10px no-repeat,
+   url(/img/corner-swirl-gold-hi-rotated.png) 10px 10px no-repeat,
+   url(Paper-4.png);*/
+}
+
+.rsvp-controls:before {
+  content: "";
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-image: url(/img/corner-swirl-gold-hi-rotated.png);
+  background-size: 96px;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 225px;
+  top: 147px;
+}
+
+.rsvp-controls:after {
+  content: "";
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-image: url(/img/corner-swirl-gold-hi.png);
+  background-size: 96px;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 579px;
+  top: 361px;
+}
+
+.rsvp-controls .btn-basic {
+  position: relative;
+  left: 270px;
+}
+
+.rsvp-controls input[type="radio"] {
+  width: 2rem;
+  height: 2rem;
 }
 
 .elegant {
   font-family: elegant;
+  font-size: 2.5rem;
+  font-weight: normal;
 }
 
 .elegant-input {
-  border-Width: 0PX;
+  border-width: 0px;
   border-bottom-width: 2px;
+  border-color: #625C5C;
+  font-size: 2.5rem;
+  font-family: elegant;
+}
+
+.elegant-input.long {
+  max-width: 78%;
 }
 
 .input-label strong{
@@ -38,4 +119,56 @@
 
 .align-right {
   text-align: right;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.dfk-font {
+  font-family: dfk-font;
+}
+
+.dillenia-font {
+  font-family: dillenia-font;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+input[type="text"].tiny {
+  width: 35px;
+}
+
+.input-group {
+  width: 100%
+}
+
+
+.btn-basic {
+  background: #b35026;
+  background-image: -webkit-linear-gradient(top, #b35026, #803028);
+  background-image: -moz-linear-gradient(top, #b35026, #803028);
+  background-image: -ms-linear-gradient(top, #b35026, #803028);
+  background-image: -o-linear-gradient(top, #b35026, #803028);
+  background-image: linear-gradient(to bottom, #b35026, #803028);
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  text-shadow: 0px 0px 9px #000000;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #ba9832 2px;
+  text-decoration: none;
+}
+
+.btn-basic:hover {
+  background: #c75d2c;
+  text-decoration: none;
+}
+
+.btn-basic.small {
+  padding: 3px 10px;
 }

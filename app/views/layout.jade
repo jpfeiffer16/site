@@ -5,9 +5,9 @@ html(lang='en')
     meta(name='viewport', content='width=device-width')
     title= title
     block css
-      link(rel='stylesheet', href='/css/style.css')
       link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
       link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css')
+      link(rel='stylesheet', href='/css/style.css')
   body
     //Nav
     div(class="container")
@@ -44,8 +44,8 @@ html(lang='en')
                 li
                   a(href="/credits") Credits
       div(clas="page-header")
-        h1 #{title} | 
-          small= heading
+        h1(class="uppercase dfk-font") #{title} | 
+          small(class="dillenia-font")= heading
         hr
       block content
 
@@ -53,3 +53,4 @@ block js
       script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
+      script(src='/script/main.js')
