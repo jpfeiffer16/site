@@ -50,7 +50,8 @@ html(lang='en')
       block content
 
 block js
+      script(src='js/jquery-2.1.4.min.js')
       script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
-      script(src='/script/main.js')
+      script(src='/js/main.js')
