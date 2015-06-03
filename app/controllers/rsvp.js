@@ -18,6 +18,12 @@ router.get('/rsvp', function (req, res, next) {
 
 
 
+router.route('/')
+  .post(function(req, res) {
+    console.log(req.body)
+  });
+
+
 
 
 var MongoClient = require('mongodb').MongoClient;
@@ -25,9 +31,15 @@ var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 
 
-router.post('/rsvp', function(req, res, next) {
-    console.log(req.data);
-});
+  //router.post('/rsvp', function(req, res, next) {
+  //    console.log(req.data);
+  //});
+
+  
+//express.post('/rspv', function(req, res) {
+//    console.log(req.body)
+//});
+
 //
 //var url = 'mongodb://admin:admin@ds043062.mongolab.com:43062/wedding';
 //MongoClient.connect(url, function(err, db) {

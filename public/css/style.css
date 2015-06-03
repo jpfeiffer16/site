@@ -172,3 +172,7 @@ input[type="text"].tiny {
 .btn-basic.small {
   padding: 3px 10px;
 }
+
+hr {
+  border-color: rgb(224, 207, 137);
+}

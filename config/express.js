@@ -44,7 +44,7 @@ module.exports = function(app, config) {
       res.render('error', {
         message: err.message,
         error: err,
-        title: 'error'
+        title: 'error'  
       });
     });
   }
