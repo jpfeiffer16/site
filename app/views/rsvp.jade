@@ -12,16 +12,18 @@ block content
 	form
 		div(class="rsvp-controls")
 			div(class="input-group")
-				strong(class="elegant") M: 	
-				input(type="text" class="elegant-input long")
+				span(class="elegant") M: 	
+				input(type="text" id="rsvp-name" class="elegant-input long")
 			br
 			div(class="input-group")
 				input(id="accept" type="radio" name="accept-or-decline")
-				strong(class="elegant")  Accepts with pleasure # 
-				input(type="text" class="elegant-input tiny" id="number-attending")
+				span(class="elegant")  Accepts with pleasure # 
+				input(type="text" id="rsvp-attending" class="elegant-input tiny")
 			br
 			div(class="input-group")
 				input(id="decline" type="radio" name="accept-or-decline")
-				strong(class="elegant")  Declines with regret 
+				span(class="elegant")  Declines with regret 
 			br
-			input(type="submit" id="submit-rsvp" class="btn-basic small dfk-font")
+			button(id="submit-rsvp" class="btn-basic small dfk-font")
+				span(id="submit-rsvp-text") Submit
+//			input(type="submit" id="submit-rsvp" class="btn-basic small dfk-font")

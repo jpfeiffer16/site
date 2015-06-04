@@ -176,3 +176,35 @@ input[type="text"].tiny {
 hr {
   border-color: rgb(224, 207, 137);
 }
+
+.button-success {
+  color: white;
+  background: green !important;
+  animation-duration: .2s;
+  animation-name: button-success;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.button-success:hover {
+  color: white;
+  background-color: green !important;
+}
+
+.rsvp-greeting {
+  margin-left: 6px;
+  font-family: dillenia-font;
+  font-size: 30px;
+  color: green;
+}
+
+@keyframes button-success {
+  0% {
+    left: 270px;
+  }
+
+  100% {
+    left: 0px;
+  }
+}
