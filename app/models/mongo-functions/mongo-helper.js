@@ -3,48 +3,61 @@ var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 
 var MongoHelpers = {
-	conntect: function() {
+	connect: function(callback) {
 		var url = 'mongodb://admin:admin@ds043062.mongolab.com:43062/wedding';
 		MongoClient.connect(url, function(err, db) {
-			assert.equal(null, err);
 			console.log("Connected correctly to server.");
-			return db;
+			callback(err, db);
 		});
 	},
 	
-	insertRsvp: function(db, name, attending, numberAttending, callback) {
-	    db.collection('rsvp').insertOne( {
-	        "name": name,
-	        "attending": attending,
-	        "numberAttending": numberAttending
-	    }, function(err, result) {
-	//        assert.equal(err, null);
-	//        console.log("Inserted a document into the rsvp collection.");
-	        callback(err, result);
-	    });
-	},
-	
-	
-	
 	insertResponse: function(rsvpResponse, rsvpCallback) {
-  		var db = MongoHelpers.conntect();
-		  
-		db.collection('rsvp').insertOne( {
-	        "name": rsvpResponse.name,
-	        "attending": rsvpResponse.accept,
-	        "numberAttending": rsvpResponse.attending
-	    }, function(err, result) {
-			db.close();
-	        rsvpCallback(err, result);
-	    });
-		
-//		MongoHelpers.insertRsvp(db, rsvpResponse.name, rsvpResponse.accept, rsvpResponse.attending, function (err, result) {
-//			db.close();
-//			rsvpCallback(err, result);
-//		});
+  		this.connect(function(err, db) {
+			db.collection('rsvp').insertOne( {
+		        "name": rsvpResponse.name,
+		        "attending": rsvpResponse.accept,
+		        "numberAttending": rsvpResponse.attending
+		    }, function(err, result) {
+				
+		        rsvpCallback(err, result);
+				db.close();
+		    });
+		});
 	},
 	
+	updateResponse: function(rsvpResponse, name, rsvpCallback) {
+		this.connect(function(err, db) {
+			db.collection('rsvp').updateOne({"name" : name}, {
+				"name": rsvpResponse.name,
+				"attending": rsvpResponse.accept,
+				"numberAttending": rsvpResponse.attending
+			}, function(err, results) {
+				
+				rsvpCallback(err, results);
+				db.close();
+			});
+		});
+	},
 	
+	checkExists: function(name, callback) {
+		this.connect(function(err, db) {
+			var results = [];
+			var cursor = db.collection('rsvp').find({"name" : name});
+			cursor.each(function(err, doc) {
+				assert.equal(err, null);
+				if(doc != null) {
+					results.push(doc);
+				}
+			});
+			
+			if (results.length > 0) {
+				callback(results[0]);
+			} else {
+				callback(null);
+			}
+			db.close();
+		});
+	}
 }
 
 module.exports = MongoHelpers;
