@@ -41,17 +41,12 @@ var MongoHelpers = {
 	
 	checkExists: function(name, callback) {
 		this.connect(function(err, db) {
-			var results = [];
-			var cursor = db.collection('rsvp').find({"name" : name});
-			cursor.each(function(err, doc) {
-				assert.equal(err, null);
-				if(doc != null) {
-					results.push(doc);
-				}
-			});
+			// var results = [];
+			var result = db.collection('rsvp').findOne({name : name });
+			console.log(result);
 			
-			if (results.length > 0) {
-				callback(results[0]);
+			if (result != undefined) {
+				callback(result);
 			} else {
 				callback(null);
 			}
