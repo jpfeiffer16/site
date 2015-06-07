@@ -5,10 +5,6 @@ var express = require('express'),
 
 module.exports = function (app) {
   app.use('/', router);
-  
-//  app.route('/rsvp').post(function(req, res) {
-//    console.log(req.body);
-//  });
 };
 
 
@@ -23,16 +19,17 @@ router.get('/rsvp', function (req, res, next) {
 var mongo = require('../models/mongo-functions/mongo-helper.js');
 var assert = require('assert');
 router.post('/rsvp', function(req, res, next) {
-    console.log(req.body);
+//    console.log('Sending dummy sucess');
+//    res.status(200);
+//    res.send('Success');
+//    console.log(helpers.insertResponse);
+//    console.log(req.body);
     
     function respond(responseObject, status) {
         res.status(status);
         res.send(responseObject);
     }
-//    console.log('Sending dummy sucess');
-//    res.status(200);
-//    res.send('Success');
-//    console.log(helpers.insertResponse);
+    
     mongo.checkExists(req.body.name, function(result) {
           if (result != null) {
               mongo.updateResponse(req.body, req.body.name, function(err, results) {

@@ -209,3 +209,12 @@ hr {
     left: 0px;
   }
 }
+
+.center-area {
+  text-align: center;
+}
+
+.center-area img {
+  max-width: 500px;
+  max-height: 500px;
+}

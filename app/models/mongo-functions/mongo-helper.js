@@ -52,6 +52,13 @@ var MongoHelpers = {
 			}
 			db.close();
 		});
+	},
+	
+	getResponses: function(callback) {
+		this.connect(function(err, db) {
+			var results = db.collection('rsvp').find();
+			callback(results, err);
+		});
 	}
 }
 
