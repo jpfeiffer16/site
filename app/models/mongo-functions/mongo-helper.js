@@ -56,7 +56,7 @@ var MongoHelpers = {
 	
 	getResponses: function(callback) {
 		this.connect(function(err, db) {
-			var results = db.collection('rsvp').find();
+			var results = db.collection('rsvp').find({}).toArray();
 			callback(results, err);
 		});
 	}
