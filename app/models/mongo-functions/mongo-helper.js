@@ -56,7 +56,14 @@ var MongoHelpers = {
 	
 	getResponses: function(callback) {
 		this.connect(function(err, db) {
-			var results = db.collection('rsvp').find({}).toArray();
+			var results = [];
+			var cursor = db.collection('rsvp').find();
+			cursor.each(function(err, item) {
+				if(item != null) {
+					console.log(item);
+					results.push(item);
+				}
+			});
 			callback(results, err);
 		});
 	}

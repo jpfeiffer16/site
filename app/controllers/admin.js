@@ -8,10 +8,15 @@ module.exports = function (app) {
 };
 
 router.get('/admin', function (req, res, next) {
-    res.render('admin', {
+    var response = {
       alias: "Admin",
       title: 'Stats',
       heading: 'Who\'s comming so far',
-      responseList: MongoHelper.getResponses()
+      responseList: null
+    };
+    MongoHelper.getResponses(function(results, err) {
+      response.responseList = results;
     });
+    
+    res.render('admin', response);
 });

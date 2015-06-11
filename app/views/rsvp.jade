@@ -1,29 +1,23 @@
 extends layout
 
-//block content
-//	h2 We put this site up for a couple of resons:
-//	ul
-//		li Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus
-//		li Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, 
-//		li aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede 
-
-
 block content
 	form
 		div(class="rsvp-controls")
 			div(class="input-group")
-				span(class="elegant") M: 	
+				label(for="rsvp-name" class="lbl-fix")
+					span(class="elegant") M: 	
 				input(type="text" id="rsvp-name" class="elegant-input long")
 			br
 			div(class="input-group")
 				input(id="accept" type="radio" name="accept-or-decline")
-				span(class="elegant")  Accepts with pleasure # 
+				label(for="accept" class="lbl-fix")
+					span(class="elegant")  Accepts with pleasure # 
 				input(type="text" id="rsvp-attending" class="elegant-input tiny")
 			br
 			div(class="input-group")
 				input(id="decline" type="radio" name="accept-or-decline")
-				span(class="elegant")  Declines with regret 
+				label(for="decline" class="lbl-fix")
+					span(class="elegant")  Declines with regret 
 			br
 			button(id="submit-rsvp" class="btn-basic small dfk-font")
 				span(id="submit-rsvp-text") Submit
-//			input(type="submit" id="submit-rsvp" class="btn-basic small dfk-font")
