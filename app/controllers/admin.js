@@ -16,7 +16,6 @@ router.get('/admin', function (req, res, next) {
     };
     MongoHelper.getResponses(function(results, err) {
       response.responseList = results;
+      res.render('admin', response);
     });
-    
-    res.render('admin', response);
 });
