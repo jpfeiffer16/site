@@ -60,11 +60,13 @@ var MongoHelpers = {
 			var cursor = db.collection('rsvp').find();
 			cursor.each(function(err, item) {
 				if(item != null) {
-					console.log(item);
+					console.log(typeof(item));
 					results.push(item);
+				} else {
+					callback(results, err);
 				}
 			});
-			callback(results, err);
+			
 		});
 	}
 }

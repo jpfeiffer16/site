@@ -1,6 +1,20 @@
 extends layout
 
 block content
-	ul(id="response-list")
-		each response in responseList
-			li response.name
+	div(class="admin-pane")
+		table(id="response-list" class="table table-hover")
+			tr
+				th
+					span Name
+				th
+					span Attending
+				th
+					span Number
+			each response in responseList
+				tr
+					td
+						span #{response.name}
+					td
+						span #{response.attending}
+					td
+						span #{response.numberAttending}
