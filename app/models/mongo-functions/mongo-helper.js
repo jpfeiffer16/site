@@ -39,16 +39,16 @@ var MongoHelpers = {
 		});
 	},
 	
-	checkExists: function(name, callback) {
+	checkExists: function(responseName, callback) {
 		this.connect(function(err, db) {
 			// var results = [];
-			var result = db.collection('rsvp').findOne({name : name });
+			var result = db.collection('rsvp').findOne({name : responseName });
 			console.log(result);
 			
-			if (result != undefined) {
+			if (result != undefined || result != null) {
 				callback(result);
 			} else {
-				callback(null);
+				callback(null); 
 			}
 			db.close();
 		});
@@ -69,6 +69,6 @@ var MongoHelpers = {
 			
 		});
 	}
-}
+};
 
 module.exports = MongoHelpers;
