@@ -247,3 +247,14 @@ hr {
 .admin-pane .table td, .admin-pane .table th {
   text-align: center;
 }
+
+.rspv-delete {
+  opacity: .6;
+}
+
+.rspv-delete:hover {
+  transition-property: opacity;
+  transition-duration: 100ms;
+  opacity: 1;
+  cursor: pointer;
+}

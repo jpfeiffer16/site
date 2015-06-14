@@ -8,7 +8,7 @@ module.exports = function (app) {
 };
 
 router.get('/admin', function (req, res, next) {
-    var response = {
+    var response = { 
       alias: "Admin",
       title: 'Stats',
       heading: 'Who\'s comming so far',

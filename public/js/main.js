@@ -40,7 +40,7 @@ $(document).ready(function() {
 			var rsvpName = $('#rsvp-name').val();
 			if ((accept.prop('checked') == true || decline.prop('checked') == true) && !(accept.prop('checked') == true && numberAttening == '') && (rsvpName != '')) {
 				submitRsvpButton.prop('disabled', true);
-				$.post('/rsvp', {name: rsvpName, accept: accept.prop('checked'), attending: numberAttening})
+				$.post('/addrsvp', {name: rsvpName, accept: accept.prop('checked'), attending: numberAttening})
 				.success(function(result) {
 					console.log(result);
 					animateButton(submitRsvpButton);
@@ -55,6 +55,22 @@ $(document).ready(function() {
 			} else {
 				alert('Please enter a number attending.');
 			}
+		});
+	}
+	
+	var deleteButton = $('.rspv-delete');
+	
+	if (deleteButton.length > 0) {
+		deleteButton.click(function() {
+			var guid = $(this).attr('guid');
+			//Send the post
+			$.post('/removersvp', {guid: this.guid})
+				.success(function(result) {
+					console.log(result);
+				})
+				.fail(function(result) {
+					console.log(result);
+				});
 		});
 	}
 });

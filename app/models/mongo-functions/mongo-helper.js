@@ -4,8 +4,8 @@ var ObjectId = require('mongodb').ObjectID;
 
 var MongoHelpers = {
 	connect: function(callback) {
-		// var url = 'mongodb://admin:admin@ds043062.mongolab.com:43062/wedding';
-		var url = 'mongodb://localhost:27017';
+		var url = 'mongodb://admin:admin@ds043062.mongolab.com:43062/wedding';
+		// var url = 'mongodb://localhost:27017';
 		MongoClient.connect(url, function(err, db) {
 			console.log("Connected correctly to server.");
 			callback(err, db);
@@ -40,10 +40,22 @@ var MongoHelpers = {
 		});
 	},
 	
+	removeResponse: function(responseGuid, callback) {
+		this.connect(function(err, db) {
+			db.collection('rsvp').deleteOne({'_id': responseGuid}, function(err, result) {
+				if (err == null) {
+					callback(null);
+				} else {
+					callback(err);
+				}
+			});
+		});
+	},
+	
 	checkExists: function(responseName, callback) {
 		this.connect(function(err, db) {
 			// var results = [];
-			db.collection('rsvp').findOne({"name" : responseName }, function(err, doc) {
+			db.collection('rsvp').findOne({name : responseName }, function(err, doc) {
 				console.log('Query result:\n', doc);
 				
 				if (doc != undefined || doc != null) {

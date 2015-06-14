@@ -10,11 +10,16 @@ block content
 					span Attending
 				th
 					span Number
+				th
+					
 			each response in responseList
-				tr
+				tr(guid="#{response._id}")
 					td
 						span #{response.name}
 					td
 						span #{response.attending}
 					td
 						span #{response.numberAttending}
+					td
+						// button(class="rspv-delete")
+						span(class="glyphicon glyphicon-remove rspv-delete")
