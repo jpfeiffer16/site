@@ -14,8 +14,13 @@ router.post('/removersvp', function(req, res, next) {
         res.send(responseObject);
     }
     
-    mongo.removeResponse(req.body.guid, function(err) {
-      if(err == null) {
+    mongo.removeResponse(req.body.name, function(err, result) {
+      console.log(err);
+      // console.log(result)
+      result = JSON.parse(result);
+      console.log(result.n);
+      console.log(result.ok);
+      if(err == null && result.n != 0 && result.ok == 1) {
           respond({result: 'Success'}, 200);
       } else {
           respond({result: 'Failure'}, 500);

@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
+var MongoDB = require('mongodb');
 var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 
@@ -40,14 +41,18 @@ var MongoHelpers = {
 		});
 	},
 	
-	removeResponse: function(responseGuid, callback) {
+	removeResponse: function(rsvpIdentifier, callback) {
 		this.connect(function(err, db) {
-			db.collection('rsvp').deleteOne({'_id': responseGuid}, function(err, result) {
-				if (err == null) {
-					callback(null);
-				} else {
-					callback(err);
-				}
+			console.log('Guid:\n', rsvpIdentifier);
+			// console.log('ObjectId converted Guid:');
+			// console.dir(ObjectId(rsvpIdentifier));
+			//{_id: ObjectId(rsvpIdentifier)}
+			db.collection('rsvp').remove({name: rsvpIdentifier}, 1, function(err, result) {
+				console.log('Debug:');
+				console.dir(result);
+				console.dir(err);
+				callback(err, result);
+				db.close();
 			});
 		});
 	},
@@ -55,7 +60,7 @@ var MongoHelpers = {
 	checkExists: function(responseName, callback) {
 		this.connect(function(err, db) {
 			// var results = [];
-			db.collection('rsvp').findOne({name : responseName }, function(err, doc) {
+			db.collection('rsvp').findOne({"name" : responseName }, function(err, doc) {
 				console.log('Query result:\n', doc);
 				
 				if (doc != undefined || doc != null) {

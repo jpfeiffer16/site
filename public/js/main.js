@@ -1,5 +1,17 @@
 /* global $ */
 
+var download = function(filename, text) {
+	var tempElement = document.createElement('a');
+	tempElement.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	tempElement.setAttribute('download', filename);
+	
+	tempElement.style.display = 'none';
+	document.body.appendChild(tempElement);
+	
+	tempElement.click();
+	
+	document.body.removeChild(tempElement);
+}
 
 function animateButton(button) {
 	button.addClass('button-success');
@@ -62,16 +74,46 @@ $(document).ready(function() {
 	
 	if (deleteButton.length > 0) {
 		deleteButton.click(function() {
-			var guid = $(this).attr('guid');
-			//Send the post
-			$.post('/removersvp', {guid: this.guid})
-				.success(function(result) {
-					console.log(result);
-				})
-				.fail(function(result) {
-					console.log(result);
-				});
+			var guid = $(this).parent().parent().attr('guid');
+			var name = $(this).parent().parent().find('td').eq(0).text();
+			var shouldDelete = confirm('Are you sure you wish to delete ' + name + '\'s rsvp?');
+			if (shouldDelete) {
+				var parentRow = $(this).parent().parent();
+				var parent = $(this).parent();
+				$(this).remove();
+				parent.append('<img src="img/spinner.gif">');
+				//Send the post
+				$.post('/removersvp', {name: name})
+					.success(function(result) {
+						parentRow.remove();
+						console.log(result);
+					})
+					.fail(function(result) {
+						parentRow.class('warning');
+						console.log(result);
+					});
+			}
 		});
 	}
+	
+	
+	$('#download-button').click(function(e) {
+		getCsv();
+	});
+	
+	function getCsv(shouldDownload) {
+		var table = $('#response-list');
+		var rows = table.find('tr');
+		var csvString = 'Name,Attending,Number' + String.fromCharCode(10);
+		
+		for (var i = 1; i < rows.length; i++) {
+			var row = rows.eq(i);
+			var name = row.find('td').eq(0).text();
+			var attending = row.find('td').eq(1).text();
+			var numberAttending = row.find('td').eq(2).text();
+			csvString = csvString + name + ',' + attending + ',' + numberAttending + String.fromCharCode(10);
+		}
+		//Export Csv
+		download('Rsvp-list.csv', csvString);
+	}
 });
-
