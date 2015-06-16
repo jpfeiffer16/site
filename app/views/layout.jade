@@ -13,8 +13,18 @@ html(lang='en')
     div(class="container")
       nav(class="navbar navbar-default")
         div(class="container-fluid")
-          a(class="navbar-brand", href="/index")
-            img(alt="Logo", src="/img/Logo.jpg" style="max-width: 30px;max-height: 30px;margin-left:-5px;margin-top:-5px;border-radius:4px;")
+          div(class="navbar-header")
+            // button(class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar")
+            // 
+            //   span(class="sr-only")Toggle navigation
+            //   
+            //   span(class="icon-bar")
+            //   span(class="icon-bar")
+            //   span(class="icon-bar")
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+            </button>
+            a(class="navbar-brand", href="/index")
+              img(alt="Logo", src="/img/Logo.jpg" style="max-width: 30px;max-height: 30px;margin-left:-5px;margin-top:-5px;border-radius:4px;")
           div(class="collapse navbar-collapse")
             ul(class="nav navbar-nav")
             
@@ -31,7 +41,7 @@ html(lang='en')
               else
                 li
                   a(href="/rsvp") RSVP
-              if alias == "MoreInfo"
+              if alias == "Info"
                 li(class="active")
                   a(href="/info") Info
               else
