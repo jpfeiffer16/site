@@ -26,21 +26,35 @@ function animateButton(button) {
 
 
 
-var numberInput = document.getElementById('rsvp-attending');
-var allowedChars = '1234567890' + String.fromCharCode(13);
-if (numberInput != null || numberInput != undefined) {
-	numberInput.addEventListener('click', function(e) {
-		document.getElementById('accept').checked = true;
-	});
-	numberInput.addEventListener('keypress', function(e) {
-		var enteredLetter = String.fromCharCode(e.keyCode);
-		if ((allowedChars.indexOf(enteredLetter) == -1) || (numberInput.value.length > 1) && (e.keyCode != 13)) {
-			e.preventDefault();
-		}
-	});
-}
+// var numberInput = document.getElementById('rsvp-attending');
+// var allowedChars = '1234567890' + String.fromCharCode(13);
+// if (numberInput != null || numberInput != undefined) {
+// 	numberInput.addEventListener('click', function(e) {
+// 		document.getElementById('accept').checked = true;
+// 	});
+// 	numberInput.addEventListener('keypress', function(e) {
+// 		var enteredLetter = String.fromCharCode(e.keyCode);
+// 		if ((allowedChars.indexOf(enteredLetter) == -1) || (numberInput.value.length > 1) && (e.keyCode != 13)) {
+// 			e.preventDefault();
+// 		}
+// 	});
+// }
 
 $(document).ready(function() {
+	var numberInput = $('#rsvp-attending');
+	var allowedChars = '1234567890' + String.fromCharCode(13)+ String.fromCharCode(8);
+	
+	numberInput.focus(function(e) {
+		$('#accept').prop('checked', true);
+	});
+	
+	numberInput.keypress(function(e) {
+		var enteredLetter = String.fromCharCode(e.charCode);
+		if(((allowedChars.indexOf(enteredLetter)) == -1 || (numberInput.val().length > 1)) && (e.keyCode != 13 && e.keyCode != 8 && e.keyCode != 9)) {
+			e.preventDefault();
+		}	
+	});
+	
 	var submitRsvpButton = $('#submit-rsvp');
 	
 	if (submitRsvpButton.length > 0) {
