@@ -31,8 +31,6 @@ function warningButton(button) {
 	var message = $('<span class="rsvp-error">There was an error. Please try again</span>').hide().fadeIn(1000);
 	if (button.parent().find('.rsvp-greeting').length < 1) {
 		button.parent().append(message);
-	} else {
-		
 	}
 }
 
@@ -78,10 +76,12 @@ $(document).ready(function() {
 			var rsvpName = $('#rsvp-name').val();
 			if ((accept.prop('checked') == true || decline.prop('checked') == true) && !(accept.prop('checked') == true && numberAttening == '') && (rsvpName != '')) {
 				submitRsvpButton.prop('disabled', true);
+				submitRsvpButton.css('width', submitRsvpButton.width());
 				submitRsvpButton.text('').append('<img src="img/spinner.gif">');
 				$.post('/addrsvp', {name: rsvpName, accept: accept.prop('checked'), attending: numberAttening})
 				.success(function(result) {
 					console.log(result);
+					submitRsvpButton.css('width', '');
 					animateButton(submitRsvpButton);
 				})
 				.fail(function(result) {
