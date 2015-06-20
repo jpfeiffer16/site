@@ -5,8 +5,8 @@ var ObjectId = require('mongodb').ObjectID;
 
 var MongoHelpers = {
 	connect: function(callback) {
-		// var url = 'mongodb://admin:admin@ds043062.mongolab.com:43062/wedding';
-		var url = 'mongodb://localhost:27017';
+		var url = 'mongodb://admin:admin@ds043062.mongolab.com:43062/wedding';
+		// var url = 'mongodb://localhost:27017';
 		MongoClient.connect(url, function(err, db) {
 			console.log("Connected correctly to server.");
 			callback(err, db);
