@@ -21,6 +21,7 @@ router.post('/addrsvp', function(req, res, next) {
     }
     
     mongo.checkExists(req.body.name, function(result) {
+          console.log('CheckExists Result:\n', result);
           if (result != null) {
               mongo.updateResponse(req.body, req.body.name, function(err, results) {
                   if (err == null) {

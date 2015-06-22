@@ -44,9 +44,6 @@ var MongoHelpers = {
 	removeResponse: function(rsvpIdentifier, callback) {
 		this.connect(function(err, db) {
 			console.log('Guid:\n', rsvpIdentifier);
-			// console.log('ObjectId converted Guid:');
-			// console.dir(ObjectId(rsvpIdentifier));
-			//{_id: ObjectId(rsvpIdentifier)}
 			db.collection('rsvp').remove({name: rsvpIdentifier}, 1, function(err, result) {
 				console.log('Debug:');
 				console.dir(result);
@@ -59,11 +56,14 @@ var MongoHelpers = {
 	
 	checkExists: function(responseName, callback) {
 		this.connect(function(err, db) {
-			db.collection('rsvp').find({"name" : responseName }, function(err, doc) {
-				console.log('Query result:\n', doc);
-				callback(doc);
+			db.collection('rsvp').find({name : responseName }).toArray(function (err, docs) {
+				if (docs.length > 0) {
+					callback(docs[0]);
+				} else {
+					callback(null);
+				}
+				db.close();
 			});
-			db.close();
 		});
 	},
 	
@@ -79,7 +79,6 @@ var MongoHelpers = {
 					callback(results, err);
 				}
 			});
-			
 		});
 	}
 };
