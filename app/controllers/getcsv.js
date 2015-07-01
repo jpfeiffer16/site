@@ -13,7 +13,7 @@ router.post('/getcsv', function(req, res, next) {
   var authToken;
   
   try {
-    authToken = require('../../config/enviro.js');
+    authToken = require('../../config/enviro.js').authToken;
   } catch(e) {
     if (process.env.authToken) {
       authToken = process.env.authToken;
@@ -23,7 +23,7 @@ router.post('/getcsv', function(req, res, next) {
   }
   
   
-  if (req.body.authToken = authToken) {
+  if (req.headers.authorization == authToken) {
   
     
     var fileTitle = Date.now.toString() + '.csv';
@@ -41,7 +41,7 @@ router.post('/getcsv', function(req, res, next) {
       res.send(csvString);
     });
   } else {
-    res.status(500);
+    res.status(400);
     res.send('Error. Invalid Authentication Token');
   }
 });
