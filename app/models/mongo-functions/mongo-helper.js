@@ -1,3 +1,4 @@
+/* global process */
 var MongoClient = require('mongodb').MongoClient;
 var MongoDB = require('mongodb');
 var assert = require('assert');
@@ -5,7 +6,25 @@ var ObjectId = require('mongodb').ObjectID;
 
 var MongoHelpers = {
 	connect: function(callback) {
-		var url = 'mongodb://admin:admin@ds043062.mongolab.com:43062/wedding';
+		var config,
+			mongoUsername,
+			mongoPassword;
+		
+		try {
+			config = require('../../../config/enviro.js');
+			mongoUsername = config.mongoUsername;
+			mongoPassword = config.mongoPassword;
+		} catch(e) {
+			if (process.env.mongoUsername != undefined && process.env.mongoPassword != undefined) {
+				mongoUsername = process.env.mongoUsername;
+				mongoPassword = process.env.mongoPassword;
+			} else {
+				throw e;
+			}
+		}
+		
+		
+		var url = 'mongodb://' + mongoUsername + ':' + mongoPassword + '@ds043062.mongolab.com:43062/wedding';
 		// var url = 'mongodb://localhost:27017';
 		MongoClient.connect(url, function(err, db) {
 			console.log("Connected correctly to server.");
