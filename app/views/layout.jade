@@ -23,9 +23,14 @@ html(lang='en')
             //   span(class="icon-bar")
             // <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
             // </button>
+            button(type="button", class="navbar-toggle collapsed", data-toggle="collapse", data-target="#nav-list", aria-expanded="false")
+              span(class="sr-only") Toggle navigation
+              span(class="icon-bar")
+              span(class="icon-bar")
+              span(class="icon-bar")
             a(class="navbar-brand", href="/index")
               img(alt="Logo", src="/img/Logo.jpg" style="max-width: 30px;max-height: 30px;margin-left:-5px;margin-top:-5px;border-radius:4px;")
-          div(class="collapse navbar-collapse")
+          div(class="collapse navbar-collapse" id="nav-list")
             ul(class="nav navbar-nav")
             
               if alias == "Home"
@@ -41,18 +46,33 @@ html(lang='en')
               else
                 li
                   a(href="/rsvp") RSVP
-              if alias == "Info"
-                li(class="active")
-                  a(href="/info") Info
-              else
-                li
-                  a(href="/info") Info
+              // if alias == "Info"
+              //   li(class="active")
+              //     a(href="/info") Info
+              // else
+              //   li
+              //     a(href="/info") Info
               if alias == "Credits"
                 li(class="active")
                   a(href="/credits") Credits
               else
                 li
                   a(href="/credits") Credits
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
       div(clas="page-header")
         h1(class="uppercase dfk-font") #{title} | 
           small(class="dillenia-font")= heading

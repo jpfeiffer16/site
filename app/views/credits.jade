@@ -2,25 +2,37 @@ extends layout
 
 block content
 	h4 The various pieces of awesomeness that drive this site:
-	ul
+	ul(id="credits-list")
 		li
 			a(href="https://nodejs.org/" target="_blank") Node JS
+				div(class="credits-preview-container")
+					img(class="credits-preview-image" src="img/nodejs.png")
 			span  - Server-side grunt work
 		li
 			a(href="http://expressjs.com/" target="_blank") Express JS
+				div(class="credits-preview-container")
+					img(class="credits-preview-image" src="img/express.png")
 			span  - MVC framework allowing for the rapid development of this site.
 		li
 			a(href="http://jade-lang.com/" target="_blank") Jade HTML Templating Engine
+				div(class="credits-preview-container")
+					img(class="credits-preview-image" src="img/jade.png")
 			span  - Templating engine for Node allowing for a heirarchical page inheritance model.
 		li
 			a(href="http://getbootstrap.com/" target="_blank") Bootstrap
+				div(class="credits-preview-container")
+					img(class="credits-preview-image" src="img/bootstrap.png")
 			span  - Css and Js frameworks for UI.
 		li
 			a(href="https://www.mongodb.org/" target="_blank") Mongo DB
+				div(class="credits-preview-container")
+					img(class="credits-preview-image" src="img/mongodb.jpg")
 			span  - For data storage.
 		li
 			a(href="https://mongolab.com/" target="_blank") MongoLab
+				div(class="credits-preview-container")
+					img(class="credits-preview-image" src="img/mongolab.png")
 			span  - Mongo DB cloud hosting.
 	p
-		a(href="https://github.com/jpfeiffer16/site" target="_blank") Here 
-		is a link to the source code. (If you're into that sort of thing)	
+		a(href="https://github.com/jpfeiffer16/site" target="_blank") Here
+		span  is a link to the source code. (If you're into that sort of thing)

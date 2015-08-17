@@ -15,10 +15,20 @@
 
 body {
   background-color: maroon !important;
+  font-family: dillenia-font;
+  font-size: 2.2em;
+}
+
+p {
+  margin: 10px 30px;
+}
+
+p.buffer-top {
+  margin: 40px 30px;
 }
 
 .container {
-  background-color: white !important;
+  /*background-color: white !important;*/
   border-radius: 3px;
   -webkit-box-shadow: 0px 0px 37px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 37px -1px rgba(0,0,0,0.75);
@@ -26,7 +36,8 @@ body {
   min-height: 100vh;
   max-width: 900px;
   position: relative;
-  background-image: url(/img/just_beige_light_beige_n-tileable.jpg);
+  /*background-image: url(/img/just_beige_light_beige_n-tileable.jpg);*/
+  background-color: beige;
 }
 
 .rsvp-controls {
@@ -47,6 +58,7 @@ body {
    url(/img/corner-swirl-gold-hi.png) 600px 10px no-repeat,
    url(/img/corner-swirl-gold-hi-rotated.png) 10px 10px no-repeat,
    url(Paper-4.png);*/
+   height: 218px;
 }
 
 .rsvp-controls:before {
@@ -78,6 +90,7 @@ body {
 .rsvp-controls .btn-basic {
   position: relative;
   left: 270px;
+  bottom: 24px;
 }
 
 .rsvp-controls input[type="radio"] {
@@ -198,6 +211,8 @@ hr {
   font-family: dillenia-font;
   font-size: 30px;
   color: green;
+  position: relative;
+  bottom: 24px;
 }
 
 @keyframes button-success {
@@ -217,6 +232,12 @@ hr {
 .center-area img {
   max-width: 500px;
   max-height: 500px;
+}
+
+@media (max-width: 550px) {
+  .center-area img {
+    width: 280px;
+  }
 }
 
 .jm-image {
@@ -257,4 +278,31 @@ hr {
   transition-duration: 100ms;
   opacity: 1;
   cursor: pointer;
+}
+
+#credits-list {
+  list-style: none;
+}
+
+#credits-list a {
+  position: relative;
+}
+
+.credits-preview-container {
+  width: 200px;
+  position: absolute;
+  bottom: 25px;
+  background-color: white;
+  display: none;
+  opacity: .9;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.credits-preview-image {
+  width: 100%;
+}
+
+#credits-list a:hover .credits-preview-container {
+  display: block;
 }

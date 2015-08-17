@@ -7,19 +7,17 @@ module.exports = function (app) {
   app.use('/', router);
 };
 
+var homepageInfo = {
+  alias: "Home",
+  title: 'MaryAndJoe.me',
+  heading: 'Welcome to our site!'
+}
+
 router.get('/', function (req, res, next) {
-    res.render('index', {
-      alias: "Home",
-      title: 'MaryAndJoe.com',
-      heading: 'Welcome to our site!'
-    });
+    res.render('index', homepageInfo);
 });
 
 
 router.get('/index', function (req, res, next) {
-    res.render('index', {
-      alias: "Home",
-      title: 'MaryAndJoe.com',
-      heading: 'Welcome to our site!'
-    });
+    res.render('index', homepageInfo);
 });

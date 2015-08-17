@@ -4,12 +4,9 @@ var download = function(filename, text) {
 	var tempElement = document.createElement('a');
 	tempElement.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
 	tempElement.setAttribute('download', filename);
-	
 	tempElement.style.display = 'none';
 	document.body.appendChild(tempElement);
-	
 	tempElement.click();
-	
 	document.body.removeChild(tempElement);
 }
 
@@ -24,7 +21,6 @@ function animateButton(button) {
 	}, 100);
 }
 
-
 function warningButton(button) {
 	button.addClas('button-error');
 	button.text('Try Again');
@@ -33,22 +29,6 @@ function warningButton(button) {
 		button.parent().append(message);
 	}
 }
-
-
-
-// var numberInput = document.getElementById('rsvp-attending');
-// var allowedChars = '1234567890' + String.fromCharCode(13);
-// if (numberInput != null || numberInput != undefined) {
-// 	numberInput.addEventListener('click', function(e) {
-// 		document.getElementById('accept').checked = true;
-// 	});
-// 	numberInput.addEventListener('keypress', function(e) {
-// 		var enteredLetter = String.fromCharCode(e.keyCode);
-// 		if ((allowedChars.indexOf(enteredLetter) == -1) || (numberInput.value.length > 1) && (e.keyCode != 13)) {
-// 			e.preventDefault();
-// 		}
-// 	});
-// }
 
 $(document).ready(function() {
 	var numberInput = $('#rsvp-attending');
@@ -122,8 +102,6 @@ $(document).ready(function() {
 			}
 		});
 	}
-	
-	
 	$('#download-button').click(function(e) {
 		getCsv();
 	});
@@ -140,7 +118,10 @@ $(document).ready(function() {
 			var numberAttending = row.find('td').eq(2).text();
 			csvString = csvString + name + ',' + attending + ',' + numberAttending + String.fromCharCode(10);
 		}
-		//Export Csv
 		download('Rsvp-list.csv', csvString);
 	}
 });
+
+// $.fn.imagePreview = function(imagePath, maxWidth) {
+// 	var html = '<div></div>';
+// };

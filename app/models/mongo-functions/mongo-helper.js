@@ -62,11 +62,7 @@ var MongoHelpers = {
 	
 	removeResponse: function(rsvpIdentifier, callback) {
 		this.connect(function(err, db) {
-			console.log('Guid:\n', rsvpIdentifier);
 			db.collection('rsvp').remove({name: rsvpIdentifier}, 1, function(err, result) {
-				console.log('Debug:');
-				console.dir(result);
-				console.dir(err);
 				callback(err, result);
 				db.close();
 			});
@@ -92,7 +88,6 @@ var MongoHelpers = {
 			var cursor = db.collection('rsvp').find();
 			cursor.each(function(err, item) {
 				if(item != null) {
-					console.log(typeof(item));
 					results.push(item);
 				} else {
 					callback(results, err);
