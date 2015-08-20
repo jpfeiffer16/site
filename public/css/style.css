@@ -40,6 +40,11 @@ p.buffer-top {
   background-color: beige;
 }
 
+.page-header .dillenia-font {
+  position: relative;
+  bottom: 5px;
+}
+
 .rsvp-controls {
   margin: auto;
   margin-top: 46px;
