@@ -311,3 +311,47 @@ hr {
 #credits-list a:hover .credits-preview-container {
   display: block;
 }
+
+/*Bootstrap overides*/
+
+.page-header {
+  border-bottom: 0px !important;
+}
+
+/*Responsive styles*/
+@media (max-width: 992px) {
+  .rsvp-controls:before {
+    left: 150px;
+  }
+  .rsvp-controls:after {
+    left: 505px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rsvp-controls:before {
+    display: none;
+  }
+  .rsvp-controls:after {
+    display: none;
+  }
+}
+
+@media (max-width: 464px) {
+  .rsvp-controls {
+    width: auto;
+    height: auto;
+    font-size: 11px;
+  }
+  .elegant-input.long {
+    width: 100%;
+  }
+  #submit-rsvp {
+    left: 0px;
+    right: 0px;
+    margin-top: 22px;
+  }
+  .rsvp-greeting {
+    display: block !important;
+  }
+}
