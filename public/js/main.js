@@ -121,7 +121,3 @@ $(document).ready(function() {
 		download('Rsvp-list.csv', csvString);
 	}
 });
-
-// $.fn.imagePreview = function(imagePath, maxWidth) {
-// 	var html = '<div></div>';
-// };
