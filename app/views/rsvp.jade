@@ -21,26 +21,13 @@ block content
 			br
 			button(id="submit-rsvp" class="btn-basic small dfk-font")
 				span(id="submit-rsvp-text") Submit
-
-
 	
 	p(class="buffer-top")
 		span For those coming from out of town, we have not reserved a block of rooms at any specific hotel but we would like to point you in the direction of a group of hotels that are located about 15 minutes from the Church and have easy access to Denver International Airport. Some of the hotels located on Tower Road include La Quinta Inn and Suites, Days Inn and Suites, Fairfield Inn and Suites, Best Western Plus, Holiday Inn and Suites and many more. Below is a map from the general area of hotels on Tower road to St. Isidores.
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	div(id="map")
 	p
 		span Out of respect to Our Lord, we ask that our guests come dressed modestly in formal chuch attire; that is, shoulders must be coverd, shirts must have sleeves, and skirts and dresses should fall bellow the knees. Thank you for your understanding.
 		
-		
-		
-		
-	
+block js
+	script(src="/js/google-maps.js")
+	script(src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap" async defer)
