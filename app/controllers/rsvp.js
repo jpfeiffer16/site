@@ -1,6 +1,7 @@
 var express = require('express'),
   router = express.Router(),
-  Page = require('../models/page')
+  Page = require('../models/page'),
+  mongoFunctions = require('../models/mongo-functions/mongo-helper.js');
 
 module.exports = function (app) {
   app.use('/', router);
@@ -8,6 +9,7 @@ module.exports = function (app) {
 
 
 router.get('/rsvp', function (req, res, next) {
+    mongoFunctions.logPageHit('rsvp', function(err, result) {});
     res.render('rsvp', {
       alias: "Rsvp",
       title: 'RSVP',

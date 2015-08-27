@@ -312,6 +312,12 @@ hr {
   display: block;
 }
 
+#map {
+  height: 400px;
+  width: 800px;
+  margin: auto;
+}
+
 /*Bootstrap overides*/
 
 .page-header {
@@ -326,6 +332,9 @@ hr {
   .rsvp-controls:after {
     left: 505px;
   }
+  #map {
+    width: 680px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -334,6 +343,16 @@ hr {
   }
   .rsvp-controls:after {
     display: none;
+  }
+  #map {
+    width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  #map {
+    width: 250px;
+    height: 250px;
   }
 }
 
@@ -354,14 +373,6 @@ hr {
   .rsvp-greeting {
     display: block !important;
   }
-}
-
-
-#map {
-  height: 400px;
-  width: 800px;
-  margin: auto;
-  /*widows: 100%;*/
 }
 
 #panel {

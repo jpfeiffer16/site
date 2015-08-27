@@ -94,6 +94,18 @@ var MongoHelpers = {
 				}
 			});
 		});
+	},
+	
+	logPageHit: function(pageName, callback) {
+		this.connect(function(err, db) {
+			db.collection('pages').insertOne( {
+		        "pageName": pageName,
+				"hitTime": new Date().toString()
+		    }, function(err, result) {
+		        callback(err, result);
+				db.close();
+		    });
+		});
 	}
 };
 
