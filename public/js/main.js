@@ -22,7 +22,7 @@ function animateButton(button) {
 }
 
 function warningButton(button) {
-	button.addClas('button-error');
+	button.addClass('button-error');
 	button.text('Try Again');
 	var message = $('<span class="rsvp-error">There was an error. Please try again</span>').hide().fadeIn(1000);
 	if (button.parent().find('.rsvp-greeting').length < 1) {
@@ -49,6 +49,7 @@ $(document).ready(function() {
 	
 	if (submitRsvpButton.length > 0) {
 		submitRsvpButton.click(function(e) {
+			var $this = $(this);
 			e.preventDefault();
 			var accept = $('#accept');
 			var decline = $('#decline');
@@ -66,6 +67,7 @@ $(document).ready(function() {
 				})
 				.fail(function(result) {
 					console.log('Failure');
+					warningButton($this);
 				});
 			} else if (accept.prop('checked') == false && decline.prop('checked') == false) {
 				alert('Please select either "decline" or "accept".');
