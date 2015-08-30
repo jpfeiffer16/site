@@ -35,7 +35,7 @@ router.post('/addrsvp', function(req, res, next) {
                       success: true,
                       resultType: 'Inserted',
                       resultObject: {}
-                  }, 500);
+                  }, 200);
               } else {
                   respond({
                       success: false

@@ -23,11 +23,12 @@ function animateButton(button) {
 
 function warningButton(button) {
 	button.addClass('button-error');
-	button.text('Try Again');
-	var message = $('<span class="rsvp-error">There was an error. Please try again</span>').hide().fadeIn(1000);
-	if (button.parent().find('.rsvp-greeting').length < 1) {
-		button.parent().append(message);
-	}
+	button.hide();
+	$('.rsvp-controls').append('<span class="rsvp-error">There was an error. Please <a href="#" class="refresh">refesh</a> the page and try again.</span>').hide().fadeIn(1000);
+	$('.refresh').click(function(e) {
+		e.preventDefault();
+		location.reload();
+	});
 }
 
 $(document).ready(function() {

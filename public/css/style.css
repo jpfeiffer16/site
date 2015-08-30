@@ -103,6 +103,10 @@ p.buffer-top {
   height: 2rem;
 }
 
+.rsvp-error {
+  color: red;
+}
+
 .elegant {
   font-family: elegant;
   font-size: 2.5rem;
