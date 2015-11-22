@@ -15,11 +15,11 @@ var homepageInfo = {
 
 router.get('/', function (req, res, next) {
     mongoFunctions.logPageHit('index', function(err, result) {});
-    res.render('index', homepageInfo);
+    res.render('done', homepageInfo);
 });
 
 
 router.get('/index', function (req, res, next) {
     mongoFunctions.logPageHit('index', function(err, result) {});
-    res.render('index', homepageInfo);
+    res.render('done', homepageInfo);
 });
